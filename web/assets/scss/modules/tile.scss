@@ -1,0 +1,25 @@
+.tile {
+  padding: 20px;
+  margin: 0 15px 10px;
+  border-radius: 5px;
+  overflow: hidden;
+  position: relative;
+  color: #fff;
+}
+.tile-content { z-index: 20; }
+.tile-content > h2 {
+  font-size: 3.5em;
+  margin-top: 0;
+}
+.tile > .fa {
+  color: rgba(0, 0, 0, 0.1);
+  font-size: 5em;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+}
+.tile-speakers { background: #f56954; }
+.tile-talks { background: #1fa67a; }
+.tile-favorites { background: #ffb848; }
+.tile-selected { background: #852b99; }

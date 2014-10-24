@@ -1,0 +1,69 @@
+@import '_vars';
+@import 'base';
+@import 'layout';
+
+@import 'modules/buttons';
+@import 'modules/module';
+@import 'modules/tile';
+
+/**
+ * SVG LOGO
+ */
+.primary-text,
+.megaphone-cover,
+.megaphone-end { fill: $primaryColor; }
+
+.base-text,
+.megaphone-base { fill: #EEEEEE; }
+
+.event-logo { max-width: 100%; }
+
+.star-favorite { color: #CCC; }
+.star-favorite--selected { color: #f49c2c; }
+
+.check-select { color: #CCC; }
+.check-select--selected { color: #f49c2c; }
+
+.navbar-opencfp {
+  background: #374146;
+}
+.navbar-opencfp .navbar-nav > li > a {
+  border-top: 3px solid transparent;
+  color: #FFF;
+  -webkit-transition: border .2s ease-in-out;
+}
+.navbar-opencfp .navbar-nav > li > a:hover,
+.navbar-opencfp .navbar-nav > .active > a,
+.navbar-opencfp .navbar-nav > .active > a:hover,
+.navbar-opencfp .navbar-nav > .active > a:focus {
+  background: none;
+  border-color: $primaryColor;
+}
+.navbar-opencfp .navbar-toggle { background: #FFF; }
+.navbar-opencfp .icon-bar { background: #CCC; }
+.nav-sidebar {
+  margin-left: -20px;
+  margin-right: -21px;
+  margin-bottom: 20px;
+}
+.nav-sidebar > li > a {
+  padding-right: 20px;
+  padding-left: 20px;
+  color: #FFF;
+  &:hover {
+    background: lighten($sidebarBaseColor, 15%);
+  }
+}
+.nav-icon {
+  display: inline-block;
+  margin-right: 0.5rem;
+  fill: #FFF;
+}
+.icon-16 {
+  height: 16px;
+  width: 16px;
+}
+.icon-12 {
+  height: 12px;
+  width: 12px;
+}

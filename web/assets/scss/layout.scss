@@ -1,0 +1,44 @@
+.dashboard { background: #ebeef1; }
+.header {
+  background: $primaryColor;
+  color: #FFF;
+  padding: 6rem 0;
+}
+.sidebar {
+  height: 100%;
+  padding: 1rem;
+  position: fixed;
+  left: 0;
+  overflow: hidden;
+  background: $sidebarBaseColor;
+  z-index: 800;
+}
+.section {
+  padding: 1rem 0;
+}
+.admin-content { padding: 1rem 4rem; }
+
+.section--full {
+  padding-right: 2rem;
+  padding-left: 2rem;
+}
+.section--primary {
+  background: $primaryColor;
+  color: #FFF;
+}
+.section--light {
+  background: #EEE;
+  color: #7e8690;
+}
+
+.headline {
+  margin: 0.75rem 0;
+  padding: 0.5rem 0;
+  font-family: $headingFont;
+}
+.headline--alpha { font-weight: 700; }
+.headline--beta {
+  font-weight: 300;
+  text-transform: uppercase;
+}
+.headline--centered { text-align: center; }

@@ -1,0 +1,13 @@
+body {
+  background: #FFF;
+  font-family: $primaryFont;
+  font-size: 1.6rem;
+  padding: 5.5rem 0;
+}
+
+a {
+  color: $primaryColor;
+}
+a:hover {
+  color: lighten($primaryColor, 10%);
+}

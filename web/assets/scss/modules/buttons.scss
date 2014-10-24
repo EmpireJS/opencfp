@@ -1,0 +1,70 @@
+/**
+ * Base Button Object
+ * @tags ^button
+ * @format
+ * <a href="#" class="btn">Register</a>
+ * <button class="btn">Register</button>
+ * <input type="submit" class="btn" value="Register">
+ */
+.btn-opencfp {
+    border: 2px solid transparent;
+    display: inline-block;
+    margin: 0;
+    padding: 1rem;
+    cursor: pointer;
+    font: inherit;
+    line-height: 1;
+    text-transform: uppercase;
+    -webkit-transition: background .1s ease-in;
+}
+.btn-opencfp,
+.btn-opencfp:hover {
+    text-decoration: none;
+}
+
+/**
+ * Button Sizes
+ * @tags ^button
+ * @extends btn
+ */
+.btn-opencfp-xsmall { font-size: 1rem; }
+.btn-opencfp-small { font-size: 1.5rem; }
+.btn-opencfp-medium { font-size: 2rem; }
+.btn-opencfp-large { font-size: 3rem; }
+.btn-opencfp-xlarge { font-size: 4rem; }
+.btn-opencfp--full { display: block; }
+.btn-opencfp--wide { padding: 1rem 4rem; }
+
+/**
+ * Primary Button Style
+ * @tags ^button
+ * @extends btn
+ */
+.btn-opencfp--primary {
+  background: #FFF;
+  color: $primaryColor;
+}
+.btn-opencfp--primary:hover {
+  background: #F7F7F7;
+  color: $primaryColor;
+}
+
+.btn-opencfp--light {
+  background: #7e8690;
+  color: #FFF;
+}
+.btn-opencfp--light:hover {
+  background: #5c636c;
+  color: #FFF;
+}
+
+.btn-opencfp--outlined {
+  background: transparent;
+  border-color:#FFF;
+  color: #FFF;
+}
+.btn-opencfp--outlined:hover {
+  background: #FFF;
+  color: $primaryColor;
+}
+.btn-opencfp--centered { text-align: center; }

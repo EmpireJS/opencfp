@@ -1,0 +1,25 @@
+.module {
+  background: #FFF;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+.module--constrained {
+  margin: 0 auto;
+  width: 60rem;
+}
+.module__header {
+  background: $primaryColor;
+  color: #FFF;
+  padding: 1rem 2rem;
+}
+.module__body {
+  padding: 2rem;
+}
+.module__footer {
+  background: #EEE;
+  padding: 1rem 2rem;
+}
+
+.nav-tabs + .module {
+  border: 1px solid #DDD;
+  border-top: 0;
+}
