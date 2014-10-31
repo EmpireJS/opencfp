@@ -3,24 +3,18 @@ paths:
 
 environments:
     default_migration_table: phinxlog
-    default_database: development
+    default_database: local
+    local:
+        adapter: %%PHINX_API_LONESTARPHP_DB_TYPE%%
+        host: %%PHINX_CFP_LONESTARPHP_DB_HOST%%
+        name: %%PHINX_CFP_LONESTARPHP_DB_NAME%%
+        user: %%PHINX_CFP_LONESTARPHP_DB_USER%%
+        pass: %%PHINX_CFP_LONESTARPHP_DB_PASS%%
+        charset: utf8
     production:
-        adapter: mysql
-        host: localhost
-        name: cfp
-        user: root
-        pass: ''
-
-    development:
-        adapter: mysql
-        host: localhost
-        name: cfp
-        user: root
-        pass: ''
-
-    testing:
-        adapter: mysql
-        host: localhost
-        name: cfp_travis
-        user: root
-        pass: ''
+        adapter: %%PHINX_API_LONESTARPHP_DB_TYPE%%
+        host: %%PHINX_CFP_LONESTARPHP_DB_HOST%%
+        name: %%PHINX_CFP_LONESTARPHP_DB_NAME%%
+        user: %%PHINX_CFP_LONESTARPHP_DB_USER%%
+        pass: %%PHINX_CFP_LONESTARPHP_DB_PASS%%
+        charset: utf8
