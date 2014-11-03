@@ -49,9 +49,19 @@ namespace :deploy do
   desc 'Migrate Database'
   task :phinx_migrate do
     on roles(:web) do
+      # Collect enviornment variables to use with migrate
       within release_path do
-        execute :source, '.env'
-        execute './vendor/bin/phinx', 'migrate', '-e production'
+        env_content = capture(:cat, '.env').split("\r\n")
+
+        env_vars = {}
+        env_content.each do |line|
+          key,value = line.split('=')
+          env_vars[key] = value unless key.empty?
+        end
+
+        with env_vars do
+          execute './vendor/bin/phinx', 'migrate', '-e production'
+        end
       end
     end
   end
