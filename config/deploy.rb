@@ -66,7 +66,18 @@ namespace :deploy do
     end
   end
 
+  desc 'Clear Cache'
+  task :clear_cache do
+    on roles(:web) do
+      within shared_path do
+        execute :rm, '-rf', 'cache'
+        execute :mkdir, 'cache'
+      end
+    end
+  end
+
   after :publishing, :composer_install
-  # after :publishing, :phinx_migrate
+  after :publishing, :phinx_migrate
+  after :publishing, :clear_cache
 
 end
