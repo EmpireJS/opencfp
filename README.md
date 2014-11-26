@@ -61,6 +61,7 @@ NOTE: Use development or production naming as appropriate.
 8. Populate MySQL database by using the `schema.sql` script available in '/migrations' folder.
 
     ```bash
+    $ mysqladmin -h HOST -u USER_NAME -pPASSWORD create DATABASE_NAME
     $ mysql -h HOST -u USER_NAME -pPASSWORD DATABASE_NAME < migrations/schema.sql
     ```
 
