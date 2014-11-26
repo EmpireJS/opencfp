@@ -9,10 +9,10 @@ Repo for OpenCFP project, a PHP-based conference talk submission system
 Contributing
 ------------
 
-We welcome and love contributions! To facilitate this we encourage you to create 
-a new personal branch after you fork this repo, for content and changes specific to your event. 
+We welcome and love contributions! To facilitate this we encourage you to create
+a new personal branch after you fork this repo, for content and changes specific to your event.
 However, anything you are willing to push back should be updated in the master branch. This will
-help keep the master branch generic for future event organizers. You would then be able to 
+help keep the master branch generic for future event organizers. You would then be able to
 merge master to your private branch and get updates when desired.
 
 Requirements
