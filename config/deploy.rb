@@ -2,7 +2,7 @@
 lock '3.2.1'
 
 set :application, 'api.lonestarphp.com'
-set :repo_url, 'https://github.com/jakefolio/opencfp.git'
+set :repo_url, 'https://github.com/dallasphp/opencfp.git'
 
 # Default branch is :master
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }.call
