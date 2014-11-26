@@ -34,6 +34,7 @@ class Talk extends \Spot\Entity
             'favorites' => $mapper->hasMany($entity, 'OpenCFP\Entity\Favorite', 'talk_id'),
             'comments' => $mapper->hasMany($entity, 'OpenCFP\Entity\TalkComment', 'talk_id')
                 ->order(['created' => 'ASC']),
+            'meta' => $mapper->hasMany($entity, 'OpenCFP\Entity\TalkMeta', 'talk_id'),
         ];
     }
 }

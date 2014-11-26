@@ -54,8 +54,30 @@ class TalksController
     {
         // Get info about the talks
         $talk_mapper = $app['spot']->mapper('OpenCFP\Entity\Talk');
+        $meta_mapper = $app['spot']->mapper('OpenCFP\Entity\TalkMeta');
         $talk_id = $req->get('id');
-        $talk = $talk_mapper->get($talk_id);
+
+        // Mark talk as viewed by admin
+        $talk_meta = $meta_mapper->where([
+                'admin_user_id' => $app['sentry']->getUser()->getId(),
+                'talk_id' => (int)$req->get('id'),
+            ])
+            ->first();
+
+        if (!$talk_meta) {
+            $talk_meta = $meta_mapper->get();
+        }
+
+        if (!$talk_meta->viewed) {
+            $talk_meta->viewed = true;
+            $talk_meta->admin_user_id = $app['sentry']->getUser()->getId();
+            $talk_meta->talk_id = $talk_id;
+            $meta_mapper->save($talk_meta);
+        }
+
+        $talk = $talk_mapper->where(['id' => $talk_id])
+            ->with(['comments'])
+            ->first();
         $all_talks = $talk_mapper->all()
             ->where(['user_id' => $talk->user_id])
             ->toArray();

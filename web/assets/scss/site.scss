@@ -5,6 +5,7 @@
 @import 'modules/buttons';
 @import 'modules/module';
 @import 'modules/tile';
+@import 'modules/comment';
 
 /**
  * SVG LOGO
@@ -18,11 +19,24 @@
 
 .event-logo { max-width: 100%; }
 
-.star-favorite { color: #CCC; }
-.star-favorite--selected { color: #f49c2c; }
+.admin-icon { color: #CCC; }
+.admin-icon--selected { color: #f49c2c; }
+.fa-thumbs-up.admin-icon--selected { color: #5cb85c; }
+.fa-thumbs-down.admin-icon--selected { color: #d9534f; }
+.fa-check-square.admin-icon--selected { color: #852b99; }
 
-.check-select { color: #CCC; }
-.check-select--selected { color: #f49c2c; }
+.talk-viewed {
+  opacity: 0.5;
+  &:hover { opacity: 1; }
+}
+
+.tab-content { margin: 1.5rem 0; }
+
+.nav-action { border-bottom: 1px solid #DDD; }
+.nav-action > li {
+  border-left: 1px solid #DDD;
+}
+.nav-action > li > a:hover { background: #F7F7F7; }
 
 .navbar-opencfp {
   background: #374146;
