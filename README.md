@@ -28,11 +28,7 @@ Installation
 
 ### Main Setup
 
-#### Clone project
-
 1. Clone this project into your working directory.
-
-#### Use Composer to get dependencies
 
 2. Now tell composer to download dependencies by running the command:
 NOTE: May need to download composer.phar first from http://getcomposer.org
