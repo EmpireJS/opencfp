@@ -32,6 +32,8 @@ class Talk extends \Spot\Entity
         return [
             'speaker' => $mapper->belongsTo($entity, 'OpenCFP\Entity\User', 'user_id'),
             'favorites' => $mapper->hasMany($entity, 'OpenCFP\Entity\Favorite', 'talk_id'),
+            'comments' => $mapper->hasMany($entity, 'OpenCFP\Entity\TalkComment', 'talk_id')
+                ->order(['created' => 'ASC']),
         ];
     }
 }

@@ -18,7 +18,7 @@ class Talk extends Mapper
     {
         $talks = $this->all()
             ->order(['created_at' => 'DESC'])
-            ->with(['favorites']);
+            ->with(['favorites', 'comments']);
         $formatted = array();
 
         foreach ($talks as $talk) {

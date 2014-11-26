@@ -39,6 +39,7 @@ class User extends \Spot\Entity
         return [
             'talks' => $mapper->hasMany($entity, 'OpenCFP\Entity\Talk', 'user_id'),
             'groups' => $mapper->hasManyThrough($entity, '\OpenCFP\Entity\Group', '\OpenCFP\Entity\UserGroup', 'group_id', 'user_id'),
+            'comments' => $mapper->hasMany($entity, 'OpenCFP\Entity\TalkComment', 'user_id'),
         ];
     }
 
