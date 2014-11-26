@@ -4,10 +4,12 @@ namespace OpenCFP\Controller\Admin;
 use Silex\Application;
 use Symfony\Component\HttpFoundation\Request;
 use Pagerfanta\View\TwitterBootstrap3View;
+use OpenCFP\Controller\FlashableTrait;
 
 class TalksController
 {
     use AdminAccessTrait;
+    use FlashableTrait;
 
     private function indexAction(Request $req, Application $app)
     {

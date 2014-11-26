@@ -12,19 +12,6 @@ class SpeakersController
     use AdminAccessTrait;
     use FlashableTrait;
 
-    public function getFlash(Application $app)
-    {
-        $flash = $app['session']->get('flash');
-        $this->clearFlash($app);
-
-        return $flash;
-    }
-
-    public function clearFlash(Application $app)
-    {
-        $app['session']->set('flash', null);
-    }
-
     private function indexAction(Request $req, Application $app)
     {
         $rawSpeakers = $app['spot']
