@@ -99,9 +99,11 @@ class TalksController
         $template = $app['twig']->loadTemplate('admin/talks/view.twig');
         $templateData = array(
             'talk' => $talk,
+            'talk_meta' => $talk_meta,
             'speaker' => $speaker,
-            'otherTalks' => $otherTalks
+            'otherTalks' => $otherTalks,
         );
+
         return $template->render($templateData);
     }
 
