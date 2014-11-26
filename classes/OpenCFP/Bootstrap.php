@@ -275,8 +275,12 @@ class Bootstrap
             ->bind('admin_talk_view');
         $secureRoutes[] = $app->post('/admin/talks/{id}/favorite', 'OpenCFP\Controller\Admin\TalksController::favoriteAction')
             ->bind('admin_talk_favorite');
+        $secureRoutes[] = $app->post('/admin/talks/{id}/rate', 'OpenCFP\Controller\Admin\TalksController::rateAction')
+            ->bind('admin_talk_rate');
         $secureRoutes[] = $app->post('/admin/talks/{id}/select', 'OpenCFP\Controller\Admin\TalksController::selectAction')
             ->bind('admin_talk_select');
+        $secureRoutes[] = $app->post('/admin/talks/{id}/comment', 'OpenCFP\Controller\Admin\TalksController::commentCreateAction')
+            ->bind('admin_talk_comment_create');
 
         // Admin::Speakers
         $secureRoutes[] = $app->get('/admin/speakers', 'OpenCFP\Controller\Admin\SpeakersController::indexAction')
