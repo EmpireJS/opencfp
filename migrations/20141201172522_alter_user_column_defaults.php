@@ -49,7 +49,7 @@ class AlterUserColumnDefaults extends AbstractMigration
             ->changeColumn('created_at', 'datetime')
             ->changeColumn('updated_at', 'datetime')
             ->changeColumn('url', 'string')
-            ->changeColumn('transportation')
+            ->changeColumn('transportation', 'boolean')
             ->changeColumn('hotel', 'boolean')
             ->changeColumn('info', 'text')
             ->changeColumn('bio', 'text')
