@@ -11,6 +11,7 @@ class AlterUserColumnDefaults extends AbstractMigration
     public function up()
     {
         $this->table('users')
+            ->changeColumn('permissions', 'text', ['null' => true])
             ->changeColumn('activated', 'boolean', ['default' => 0, 'null' => true])
             ->changeColumn('activation_code', 'string', ['null' => true])
             ->changeColumn('activated_at', 'string', ['null' => true])
@@ -21,6 +22,12 @@ class AlterUserColumnDefaults extends AbstractMigration
             ->changeColumn('last_name', 'string', ['null' => true])
             ->changeColumn('created_at', 'datetime', ['default' => '0000-00-00 00:00:00'])
             ->changeColumn('updated_at', 'datetime', ['default' => '0000-00-00 00:00:00'])
+            ->changeColumn('url', 'string', ['null' => true])
+            ->changeColumn('transportation', 'boolean', ['null' => true])
+            ->changeColumn('hotel', 'boolean', ['null' => true])
+            ->changeColumn('info', 'text', ['null' => true])
+            ->changeColumn('bio', 'text', ['null' => true])
+            ->changeColumn('photo_path', 'string', ['null' => true])
             ->save();
     }
 
@@ -30,6 +37,7 @@ class AlterUserColumnDefaults extends AbstractMigration
     public function down()
     {
         $this->table('users')
+            ->changeColumn('permissions', 'text')
             ->changeColumn('activated', 'boolean')
             ->changeColumn('activation_code', 'string')
             ->changeColumn('activated_at', 'string')
@@ -40,6 +48,12 @@ class AlterUserColumnDefaults extends AbstractMigration
             ->changeColumn('last_name', 'string')
             ->changeColumn('created_at', 'datetime')
             ->changeColumn('updated_at', 'datetime')
+            ->changeColumn('url', 'string')
+            ->changeColumn('transportation')
+            ->changeColumn('hotel', 'boolean')
+            ->changeColumn('info', 'text')
+            ->changeColumn('bio', 'text')
+            ->changeColumn('photo_path', 'string')
             ->save();
     }
 }
