@@ -6,7 +6,7 @@ use OpenCFP\Http\Controller\BaseController;
 use Silex\Application;
 use Symfony\Component\HttpFoundation\Request;
 use Pagerfanta\View\TwitterBootstrap3View;
-use OpenCFP\Controller\FlashableTrait;
+use OpenCFP\Http\Controller\FlashableTrait;
 
 class TalksController extends BaseController
 {
@@ -60,7 +60,7 @@ class TalksController extends BaseController
 
         // Mark talk as viewed by admin
         $talk_meta = $meta_mapper->where([
-                'admin_user_id' => $app['sentry']->getUser()->getId(),
+                'admin_user_id' => $this->app['sentry']->getUser()->getId(),
                 'talk_id' => (int)$req->get('id'),
             ])
             ->first();
@@ -71,7 +71,7 @@ class TalksController extends BaseController
 
         if (!$talk_meta->viewed) {
             $talk_meta->viewed = true;
-            $talk_meta->admin_user_id = $app['sentry']->getUser()->getId();
+            $talk_meta->admin_user_id = $this->app['sentry']->getUser()->getId();
             $talk_meta->talk_id = $talk_id;
             $meta_mapper->save($talk_meta);
         }
@@ -110,7 +110,7 @@ class TalksController extends BaseController
     private function rateAction(Request $req, Application $app)
     {
         $admin_user_id = (int)$app['sentry']->getUser()->getId();
-        $mapper = $app['spot']->mapper('OpenCFP\Entity\TalkMeta');
+        $mapper = $app['spot']->mapper('OpenCFP\Domain\Entity\TalkMeta');
 
         $talk_rating = (int)$req->get('rating');
         var_dump($talk_rating);
