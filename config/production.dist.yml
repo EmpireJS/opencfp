@@ -3,7 +3,7 @@ application:
   url: http://cfp.dev
   email: contact@openconf.com
   eventurl: http://myenvent.com
-  enddate: Oct. 14th, 2016
+  enddate: "Oct. 14th, 2016 11:59 PM CST"
   airport: MIA
   arrival: 2014-10-26
   departure: 2014-10-31

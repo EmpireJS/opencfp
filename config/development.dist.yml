@@ -3,7 +3,7 @@ application:
   url: http://localhost
   email: contact@openconf.com
   eventurl: http://localhost
-  enddate: Oct. 14th, 2016
+  enddate: "Oct. 14th, 2016 11:59 PM CST"
   airport: MIA
   arrival: 2014-10-26
   departure: 2014-10-31
