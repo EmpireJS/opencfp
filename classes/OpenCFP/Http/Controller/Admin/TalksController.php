@@ -16,8 +16,16 @@ class TalksController extends BaseController
     private function indexAction(Request $req)
     {
         $admin_user_id = $this->app['sentry']->getUser()->getId();
-        $mapper = $this->app['spot']->mapper('OpenCFP\Domain\Entity\Talk');
-        $pager_formatted_talks = $mapper->getAllPagerFormatted($admin_user_id);
+        $options = [
+            'order_by' => $req->get('order_by'),
+            'sort' => $req->get('sort'),
+        ];
+
+        $pager_formatted_talks = $this->getFilteredTalks(
+            $req->get('filter'),
+            $admin_user_id,
+            $options
+        );
 
         // Set up our page stuff
         $adapter = new \Pagerfanta\Adapter\ArrayAdapter($pager_formatted_talks);
@@ -29,9 +37,11 @@ class TalksController extends BaseController
             $pagerfanta->setCurrentPage($req->get('page'));
         }
 
+        $queryParams = $req->query->all();
         // Create our default view for the navigation options
-        $routeGenerator = function ($page) {
-            return '/admin/talks?page=' . $page;
+        $routeGenerator = function ($page) use ($queryParams) {
+            $queryParams['page'] = $page;
+            return '/admin/talks?' . http_build_query($queryParams);
         };
         $view = new TwitterBootstrap3View();
         $pagination = $view->render(
@@ -45,10 +55,44 @@ class TalksController extends BaseController
             'talks' => $pagerfanta,
             'page' => $pagerfanta->getCurrentPage(),
             'current_page' => $req->getRequestUri(),
-            'totalRecords' => count($pager_formatted_talks)
+            'totalRecords' => count($pager_formatted_talks),
+            'filter' => $req->get('filter')
         );
 
         return $this->render('admin/talks/index.twig', $templateData);
+    }
+
+    private function getFilteredTalks($filter = null, $admin_user_id, $options = [])
+    {
+        $talk_mapper = $this->app['spot']->mapper('OpenCFP\Domain\Entity\Talk');
+        if ($filter === null) {
+            return $talk_mapper->getAllPagerFormatted($admin_user_id, $options);
+        }
+
+        switch(strtolower($filter)) {
+            case "notviewed":
+                return $talk_mapper->getNotViewedTalksByUserId($admin_user_id, $options);
+                break;
+
+            case "notrated":
+                return $talk_mapper->getNotRatedTalksByUserId($admin_user_id, $options);
+                break;
+
+            case "rated":
+                return $talk_mapper->getRatedTalksByUserId($admin_user_id, $options);
+                break;
+
+            case "viewed":
+                return $talk_mapper->getViewedTalksByUserId($admin_user_id, $options);
+                break;
+
+            case "favorited":
+                return $talk_mapper->getFavoritesByUserId($admin_user_id, $options);
+                break;
+
+            default:
+                return $talk_mapper->getAllPagerFormatted($admin_user_id, $options);
+        }
     }
 
     public function viewAction(Request $req)
