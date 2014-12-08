@@ -15,19 +15,12 @@ class ReviewController extends BaseController
     {
         $user = $this->app['sentry']->getUser();
 
-        // How many admins make for a majority?
-        $mapper = $this->app['spot']->mapper('OpenCFP\Domain\Entity\User');
-        $admin_count = $mapper->all()
-            ->where(['permissions' => '{"admin":1}'])
-            ->count();
-        $admin_majority = (int) ($admin_count * .501) + 1;
-
         // Get list of talks where majority of admins 'favorited' them
         $mapper = $this->app['spot']->mapper('OpenCFP\Domain\Entity\Talk');
-        $favorite_talks = $mapper->getAdminFavorites($user->id, $admin_majority);
+        $talks = $mapper->getTopRatedTalksByUserId($user->id);
 
         // Set up our page stuff
-        $adapter = new \Pagerfanta\Adapter\ArrayAdapter($favorite_talks);
+        $adapter = new \Pagerfanta\Adapter\ArrayAdapter($talks);
         $pagerfanta = new \Pagerfanta\Pagerfanta($adapter);
         $pagerfanta->setMaxPerPage(20);
         $pagerfanta->getNbResults();
@@ -51,7 +44,7 @@ class ReviewController extends BaseController
             'pagination' => $pagination,
             'talks' => $pagerfanta,
             'page' => $pagerfanta->getCurrentPage(),
-            'totalRecords' => count($favorite_talks)
+            'totalRecords' => count($talks)
         ];
 
         return $this->render('admin/review/index.twig', $template_data);
