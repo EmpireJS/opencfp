@@ -21,7 +21,7 @@ class TalkComment extends \Spot\Entity
     {
         return [
             'talk' => $mapper->belongsTo($entity, '\OpenCFP\Domain\Entity\Talk', 'talk_id'),
-            'user' => $mapper->belongsTo($entity, '\OpenCFP\Domain\User', 'user_id'),
+            'user' => $mapper->belongsTo($entity, '\OpenCFP\Domain\Entity\User', 'user_id'),
         ];
     }
 }
