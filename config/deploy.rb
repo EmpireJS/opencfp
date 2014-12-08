@@ -24,7 +24,7 @@ set :log_level, :debug
 set :pty, true
 
 # Default value for :linked_files is []
-set :linked_files, %w{.env config/config.production.ini}
+set :linked_files, %w{.env config/production.yml}
 
 # Default value for linked_dirs is []
 set :linked_dirs, %w{vendor cache web/uploads}
