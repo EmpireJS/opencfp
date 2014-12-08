@@ -389,6 +389,7 @@ class Bootstrap
                     mkdir($this->getPurifierCacheDirectory(), 0775, true);
                 }
                 $config->set('Cache.SerializerPath', $this->getPurifierCacheDirectory());
+                $config->set('Cache.SerializerPermissions', 0664);
             }
 
             $this->_purifier = new \HTMLPurifier($config);
