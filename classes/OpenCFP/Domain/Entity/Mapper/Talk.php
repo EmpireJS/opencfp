@@ -350,7 +350,7 @@ class Talk extends Mapper
         $talk_meta = $talk_mapper->where(['talk_id' => $talk->id, 'admin_user_id' => $admin_user_id])
             ->first();
 
-        $talk->meta = ($talk_meta) ? $talk_meta : $mapper->get();
+        $talk->meta = ($talk_meta) ? $talk_meta : $talk_mapper->get();
         $talk->favorite = ($favorite !== null) ? 1 : 0;
 
         return $talk;
