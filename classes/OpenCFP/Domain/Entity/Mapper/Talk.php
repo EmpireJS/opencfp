@@ -353,7 +353,7 @@ class Talk extends Mapper
             ->first();
 
         $talk->meta = ($talk_meta) ? $talk_meta : $talk_mapper->get();
-        $talk->favorite = ($favorite !== null) ? 1 : 0;
+        $talk->favorite = ($favorite !== false) ? 1 : 0;
 
         return $talk;
     }
