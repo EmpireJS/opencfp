@@ -26,7 +26,7 @@ class Talk extends Mapper
      * @throws InvalidArgumentException If order by is not in white list
      * @return array
      */
-    public function getAllPagerFormatted($admin_user_id, $options = [])
+    public function getAll($admin_user_id, $options = [])
     {
         // Merge options with default options
         $options = $this->getSortOptions(
@@ -119,13 +119,13 @@ class Talk extends Mapper
         $options = $this->getSortOptions(
             $options,
             [
-                'order_by' => 'rating',
+                'order_by' => 'total_rating',
                 'sort' => 'DESC',
             ]
         );
 
         $talks = $this->query(
-            "SELECT t.*, SUM(m.rating) FROM talks t "
+            "SELECT t.*, SUM(m.rating) AS total_rating FROM talks t "
             . "LEFT JOIN talk_meta m ON t.id = m.talk_id "
             . "WHERE rating > 0 "
             . "GROUP BY m.`talk_id` "
@@ -342,38 +342,18 @@ class Talk extends Mapper
      */
     protected function createdFormattedOutput($talk, $admin_user_id)
     {
-        if ($talk->favorites) {
-            foreach ($talk->favorites as $favorite) {
-                if ($favorite->admin_user_id == $admin_user_id) {
-                    $talk->favorite = 1;
-                }
-            }
-        }
-
-        $mapper = $this->getMapper('OpenCFP\Domain\Entity\TalkMeta');
-        $talk_meta = $mapper->where(['talk_id' => $talk->id, 'admin_user_id' => $admin_user_id])
+        $favorite_mapper = $this->getMapper('OpenCFP\Domain\Entity\Favorite');
+        $favorite = $favorite_mapper->where(['talk_id' => $talk->id, 'admin_user_id' => $admin_user_id])
             ->first();
 
-        $output = [
-            'id' => $talk->id,
-            'title' => $talk->title,
-            'type' => $talk->type,
-            'category' => $talk->category,
-            'created_at' => $talk->created_at,
-            'selected' => $talk->selected,
-            'favorite' => $talk->favorite,
-            'meta' => ($talk_meta) ? $talk_meta : $mapper->get(),
-        ];
+        $talk_mapper = $this->getMapper('OpenCFP\Domain\Entity\TalkMeta');
+        $talk_meta = $talk_mapper->where(['talk_id' => $talk->id, 'admin_user_id' => $admin_user_id])
+            ->first();
 
-        if ($talk->speaker) {
-            $output['user'] = [
-                'id' => $talk->speaker->id,
-                'first_name' => $talk->speaker->first_name,
-                'last_name' => $talk->speaker->last_name
-            ];
-        }
+        $talk->meta = ($talk_meta) ? $talk_meta : $mapper->get();
+        $talk->favorite = ($favorite !== null) ? 1 : 0;
 
-        return $output;
+        return $talk;
     }
 
     /**

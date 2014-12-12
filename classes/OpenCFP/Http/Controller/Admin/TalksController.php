@@ -66,7 +66,7 @@ class TalksController extends BaseController
     {
         $talk_mapper = $this->app['spot']->mapper('OpenCFP\Domain\Entity\Talk');
         if ($filter === null) {
-            return $talk_mapper->getAllPagerFormatted($admin_user_id, $options);
+            return $talk_mapper->getAll($admin_user_id, $options);
         }
 
         switch(strtolower($filter)) {
@@ -91,7 +91,7 @@ class TalksController extends BaseController
                 break;
 
             default:
-                return $talk_mapper->getAllPagerFormatted($admin_user_id, $options);
+                return $talk_mapper->getAll($admin_user_id, $options);
         }
     }
 
