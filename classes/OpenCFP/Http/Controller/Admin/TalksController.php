@@ -250,10 +250,10 @@ class TalksController extends BaseController
 
     private function commentCreateAction(Request $req)
     {
-        $talk_id = (int)$req->get('id');
-        $admin_user_id = (int)$app['sentry']->getUser()->getId();
+        $talk_id = (int) $req->get('id');
+        $admin_user_id = (int) $this->app['sentry']->getUser()->getId();
 
-        $mapper = $app['spot']->mapper('OpenCFP\Domain\Entity\TalkComment');
+        $mapper = $this->app['spot']->mapper('OpenCFP\Domain\Entity\TalkComment');
         $comment = $mapper->get();
 
         $comment->talk_id = $talk_id;
@@ -262,7 +262,7 @@ class TalksController extends BaseController
 
         $mapper->save($comment);
 
-        $app['session']->set('flash', [
+        $this->app['session']->set('flash', [
                 'type' => 'success',
                 'short' => 'Success',
                 'ext' => "Comment Added!"
