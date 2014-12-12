@@ -16,7 +16,7 @@ class HtmlPurifierServiceProvider implements ServiceProviderInterface
             $config = HTMLPurifier_Config::createDefault();
 
             if ($app->config('cache.enabled')) {
-                $cacheDirectory = $app->config('paths.cache.purifier');
+                $cacheDirectory = $app->cachePurifierPath();
 
                 if (!is_dir($cacheDirectory)) {
                     mkdir($cacheDirectory, 0755, true);
