@@ -248,12 +248,12 @@ class TalksController extends BaseController
         return true;
     }
 
-    private function commentCreateAction(Request $req, Application $app)
+    private function commentCreateAction(Request $req)
     {
         $talk_id = (int)$req->get('id');
         $admin_user_id = (int)$app['sentry']->getUser()->getId();
 
-        $mapper = $app['spot']->mapper('OpenCFP\Entity\TalkComment');
+        $mapper = $app['spot']->mapper('OpenCFP\Domain\Entity\TalkComment');
         $comment = $mapper->get();
 
         $comment->talk_id = $talk_id;
@@ -268,6 +268,6 @@ class TalksController extends BaseController
                 'ext' => "Comment Added!"
             ]);
 
-        return $app->redirect($app->url('admin_talk_view', ['id' => $talk_id]));
+        return $this->app->redirect($this->app->url('admin_talk_view', ['id' => $talk_id]));
     }
 }
