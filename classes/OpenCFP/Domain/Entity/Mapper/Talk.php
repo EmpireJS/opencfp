@@ -10,9 +10,11 @@ class Talk extends Mapper
      * Column Sort By White List
      * @var array
      */
-    protected $sort_by_whitelist = [
+    protected $order_by_whitelist = [
         'created_at',
         'title',
+        'type',
+        'category',
     ];
 
     /**
@@ -38,7 +40,7 @@ class Talk extends Mapper
         );
 
         $talks = $this->all()
-            ->order(['created_at' => 'DESC'])
+            ->order([$options['order_by'] => $options['sort']])
             ->with(['favorites']);
         $formatted = array();
 
@@ -365,7 +367,7 @@ class Talk extends Mapper
      */
     protected function getSortOptions(array $options, array $defaultOptions)
     {
-        if (!in_array($options['order_by'], $this->sort_by_whitelist)) {
+        if (!in_array($options['order_by'], $this->order_by_whitelist)) {
             $options['order_by'] = $defaultOptions['order_by'];
         }
 
