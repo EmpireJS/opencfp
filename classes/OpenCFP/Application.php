@@ -24,6 +24,8 @@ use Symfony\Component\HttpFoundation\Request;
 
 final class Application extends SilexApplication
 {
+    use \Silex\Application\UrlGeneratorTrait;
+
     /**
      * @param array       $basePath
      * @param Environment $environment
