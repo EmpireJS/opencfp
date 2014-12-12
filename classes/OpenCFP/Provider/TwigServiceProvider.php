@@ -41,6 +41,7 @@ class TwigServiceProvider implements ServiceProviderInterface
                         break;
                     default:
                         $message = $app['twig']->render('error/500.twig');
+                        error_log($e->getMessage());
                 }
 
                 return new Response($message, $code);
