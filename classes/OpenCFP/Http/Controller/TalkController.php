@@ -46,7 +46,7 @@ class TalkController extends BaseController
 
         $user = $this->app['sentry']->getUser();
 
-        if ($talk_info['user_id'] !== $user->getId()) {
+        if ($talk_info->user_id !== (int) $user->getId()) {
             return $this->redirectTo('dashboard');
         }
 
@@ -94,7 +94,7 @@ class TalkController extends BaseController
         $talk_mapper = $this->app['spot']->mapper('OpenCFP\Domain\Entity\Talk');
         $talk_info = $talk_mapper->get($talk_id)->toArray();
 
-        if ($talk_info['user_id'] !== (int) $user->getId()) {
+        if ($talk_info->user_id !== (int) $user->getId()) {
             return $this->redirectTo('dashboard');
         }
 
