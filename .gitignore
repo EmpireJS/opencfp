@@ -18,5 +18,4 @@ deployment.xml
 /scripts
 /web/uploads/*
 !/web/uploads/dummyphoto.jpg
-phinx.yml
 /phpunit.xml

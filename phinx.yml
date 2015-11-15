@@ -1,0 +1,20 @@
+paths:
+    migrations: %%PHINX_CONFIG_DIR%%/migrations
+
+environments:
+    default_migration_table: phinxlog
+    default_database: development
+    development:
+        adapter: mysql
+        host: localhost
+        name: cfp
+        user: root
+        pass: ''
+        charset: utf8
+    production:
+        adapter: %%PHINX_API_LONESTARPHP_DB_TYPE%%
+        host: %%PHINX_CFP_LONESTARPHP_DB_HOST%%
+        name: %%PHINX_CFP_LONESTARPHP_DB_NAME%%
+        user: %%PHINX_CFP_LONESTARPHP_DB_USER%%
+        pass: %%PHINX_CFP_LONESTARPHP_DB_PASS%%
+        charset: utf8
