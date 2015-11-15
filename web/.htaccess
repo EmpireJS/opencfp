@@ -1,5 +1,7 @@
 <IfModule mod_rewrite.c>
-   RewriteEngine on
-   RewriteRule    ^$ web/    [L]
-   RewriteRule    (.*) web/$1 [L]
+    Options -MultiViews
+
+    RewriteEngine On
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^ index.php [QSA,L]
 </IfModule>
