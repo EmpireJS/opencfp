@@ -18,7 +18,7 @@ class HtmlPurifierServiceProvider implements ServiceProviderInterface
             if ($app->config('cache.enabled')) {
                 $cachePermissions = 0755;
                 $config->set('Cache.SerializerPermissions', $cachePermissions);
-                $cacheDirectory = $app->config('paths.cache.purifier');
+                $cacheDirectory = $app->config('cache.directory');
 
                 if (!is_dir($cacheDirectory)) {
                     mkdir($cacheDirectory, $cachePermissions, true);
