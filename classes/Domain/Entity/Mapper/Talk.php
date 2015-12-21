@@ -42,7 +42,7 @@ class Talk extends Mapper
         $talks = $this->all()
             ->order([$options['order_by'] => $options['sort']])
             ->with(['favorites', 'comments']);
-        $formatted = array();
+        $formatted = [];
 
         foreach ($talks as $talk) {
             $formatted[] = $this->createdFormattedOutput($talk, $admin_user_id);
@@ -408,7 +408,7 @@ class Talk extends Mapper
             $output['user'] = [
                 'id' => $talk->speaker->id,
                 'first_name' => $talk->speaker->first_name,
-                'last_name' => $talk->speaker->last_name
+                'last_name' => $talk->speaker->last_name,
             ];
         }
 

@@ -2,10 +2,10 @@
 namespace OpenCFP\Tests\Http\Controller\Admin;
 
 use Mockery as m;
-use Symfony\Component\HttpFoundation\Session\Session;
-use Symfony\Component\HttpFoundation\Session\Storage\MockFileSessionStorage;
 use OpenCFP\Application;
 use OpenCFP\Environment;
+use Symfony\Component\HttpFoundation\Session\Session;
+use Symfony\Component\HttpFoundation\Session\Storage\MockFileSessionStorage;
 
 class TalksControllerTest extends \PHPUnit_Framework_TestCase
 {
@@ -49,7 +49,7 @@ class TalksControllerTest extends \PHPUnit_Framework_TestCase
         $userDetails = [
             'id' => $userId,
             'first_name' => 'Test',
-            'last_name' => 'User'
+            'last_name' => 'User',
         ];
 
         $talkData = [0 => [
@@ -67,7 +67,7 @@ class TalksControllerTest extends \PHPUnit_Framework_TestCase
             'created_at' => date('Y-m-d'),
             'user' => $userDetails,
             'favorite' => null,
-            'selected' => null
+            'selected' => null,
         ]];
         $userMapper = m::mock('OpenCFP\Domain\Entity\Mapper\User');
         $userMapper->shouldReceive('migrate');
