@@ -1,15 +1,15 @@
-set :application, 'cfp.lonestarphp.com'
-set :repo_url, 'https://github.com/dallasphp/opencfp.git'
+set :application, 'cfp.empirejs.org'
+set :repo_url, 'https://github.com/empirejs/opencfp.git'
 
 # Default branch is :master
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }.call
 
 # Default deploy_to directory is /var/www/my_app
-set :deploy_to, '/var/www/cfp.lonestarphp.com'
+set :deploy_to, '/var/www/cfp.empirejs.org'
 
 # Default value for :scm is :git
 set :scm, :git
-set :branch, "lonestarphp2016"
+set :branch, "empirejs2016"
 
 # Default value for :format is :pretty
 set :format, :pretty

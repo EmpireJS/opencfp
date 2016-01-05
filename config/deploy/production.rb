@@ -1,1 +1,1 @@
-role :web, %w{lonestarphp.prod}
+role :web, %w{cfp.empirejs.prod}
