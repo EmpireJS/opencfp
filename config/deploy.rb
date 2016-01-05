@@ -69,6 +69,7 @@ namespace :deploy do
       within shared_path do
         execute :rm, '-rf', 'cache'
         execute :mkdir, 'cache'
+        execute :chmod, "-R 777 cache"
       end
     end
   end
