@@ -1,14 +1,14 @@
 application:
-  title: OpenCFP
-  url: http://localhost
-  email: contact@openconf.com
-  eventurl: http://localhost
-  enddate: Oct. 14th, 2016
+  title: EmpireJS
+  url: http://speak.empirejs.org
+  email: us@empirejs.org
+  eventurl: http://empirejs.org
+  enddate: Feb. 20th, 2016
   show_submission_count: false
-  airport: MIA
-  arrival: 2014-10-26
-  departure: 2014-10-31
-  secure_ssl: false
+  airport: NYC
+  arrival: TBD
+  departure: TBD
+  secure_ssl: true
   online_conference: false
 
 api:
