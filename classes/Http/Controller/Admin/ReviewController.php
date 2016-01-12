@@ -57,6 +57,7 @@ class ReviewController extends BaseController
             'filter' => $req->get('filter'),
             'sort' => $req->get('sort'),
             'order_by' => $req->get('order_by'),
+            'current_page' => $req->getRequestUri(),
         ];
 
         return $this->render('admin/review/index.twig', $template_data);

@@ -55,8 +55,6 @@ function deleteTalk(tid) {
         <thead>
             <tr>
                 <th>Talk Name</th>
-                <th>Type</th>
-                <th>Category</th>
                 <th>Created On</th>
                 <th>&nbsp;</th>
                 <th>&nbsp;</th>
@@ -66,8 +64,6 @@ function deleteTalk(tid) {
         {% for talk in profile.talks %}
             <tr id="talk-{{ talk.id }}">
                 <td><b><a href="{{ url('talk_view', { id: talk.id }) }}">{{ talk.title|raw }}</a></b></td>
-                <td>{{ talk.type }}</td>
-                <td>{{ talk.category }}</td>
                 <td>{{ talk.created_at|date("F jS \\a\\t g:ia T") }}</td>
                 {% if cfp_open %}
                     <td><a href="{{ url('talk_edit', { id: talk.id }) }}">Edit</a></td>
