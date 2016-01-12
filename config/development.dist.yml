@@ -8,7 +8,7 @@ application:
   airport: NYC
   arrival: TBD
   departure: TBD
-  secure_ssl: true
+  secure_ssl: false
   online_conference: false
 
 api:
