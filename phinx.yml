@@ -1,0 +1,19 @@
+paths:
+    migrations: %%PHINX_CONFIG_DIR%%/migrations
+
+environments:
+    default_migration_table: phinxlog
+    default_database: development
+    development:
+        adapter: mysql
+        host: mysql
+        name: 2017_opencfp
+        user: dbadmin
+        pass: root
+        charset: utf8
+    production:
+        adapter: %%PHINX_CFP_EMPIREJS_DB_TYPE%%
+        host: %%PHINX_CFP_EMPIREJS_DB_HOST%%
+        name: %%PHINX_CFP_EMPIREJS_DB_NAME%%
+        user: %%PHINX_CFP_EMPIREJS_DB_USER%%
+        pass: %%PHINX_CFP_EMPIREJS_DB_PASS%%
