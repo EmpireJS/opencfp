@@ -23,7 +23,7 @@ set :pty, true
 set :linked_files, %w{.env config/production.yml}
 
 # Default value for linked_dirs is []
-set :linked_dirs, %w{vendor cache web/uploads}
+set :linked_dirs, %w{vendor cache web/uploads log}
 
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
