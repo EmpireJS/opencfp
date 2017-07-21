@@ -5,6 +5,10 @@ body {
   padding: 5.5rem 0;
 }
 
+.logo {
+  height: 60px;
+}
+
 a {
   color: #D9B463;
 }
@@ -34,7 +38,7 @@ a:hover {
 }
 
 .section {
-  padding: 1rem 0;
+  padding: 2rem 0;
 }
 
 .admin-content {
@@ -145,7 +149,7 @@ a:hover {
 }
 
 .btn-opencfp--light {
-  background: #593400;
+  background: #323232;
   color: #FFF;
 }
 
@@ -380,7 +384,7 @@ a:hover {
 }
 
 .navbar-opencfp {
-  background: #401B00;
+  background: #323232;
 }
 
 .navbar-collapse {
@@ -405,7 +409,7 @@ a:hover {
 .navbar-opencfp .nav .open>a:focus
 {
   background: none;
-  border-color: #D9B463;
+  border-color: #F1DD3F;
 }
 
 .navbar-opencfp .navbar-toggle {
