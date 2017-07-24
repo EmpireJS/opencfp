@@ -5,9 +5,10 @@ body {
   padding: 5.5rem 0;
 }
 
-.logo {
+/* Reverting back to old OpenCFP logo */
+/* .logo {
   height: 60px;
-}
+} */
 
 a {
   color: #D9B463;
