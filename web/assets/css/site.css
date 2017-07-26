@@ -56,6 +56,14 @@ a:hover {
   color: #000;
 }
 
+.section--primary a {
+    color: #A68130;
+}
+
+.section--primary a:hover {
+    color: #BF9A49;
+}
+
 .section--light {
   background: #F2CD7C;
   color: #fff;
