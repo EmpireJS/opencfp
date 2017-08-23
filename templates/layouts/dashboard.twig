@@ -25,6 +25,7 @@
                     <ul class="nav navbar-nav navbar-right">
                         <li{% if path('speaker_package') == current_page %} class="active"{% endif %}><a href="{{ url('speaker_package') }}">Speaker Package</a></li>
                         <li{% if path('talk_ideas') == current_page %} class="active"{% endif %}><a href="{{ url('talk_ideas') }}">Talk Ideas</a></li>
+                        <li{% if path('faq') == current_page %} class="active"{% endif %}><a href="{{ url('faq') }}">FAQ</a></li>
 
                         {% if user is defined and user is not empty %}
                             <li{% if path('dashboard') == current_page %} class="active"{% endif %}><a href="{{ url('dashboard') }}">Dashboard</a></li>
